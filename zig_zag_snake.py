@@ -13,5 +13,7 @@ for row in range(rows):
     else:
         print(*[word_copy.popleft() for _ in range(cols)][::-1],sep='')
 
-
+# input data example
+# 1 4
+# Python
 
