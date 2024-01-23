@@ -6,10 +6,4 @@ for n in input().split('|')[::-1]:
 print(*matrix)
 
 # example input data
-# 3
-# 1 2 3
-# 4 5 6
-# 7 8 9
-# Add 0 0 5
-# Subtract 1 1 2
-# END
+# 1 2 3 |4 5 6 |  7  88
