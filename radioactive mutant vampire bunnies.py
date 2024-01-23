@@ -75,3 +75,24 @@ for command in commands:
         show_results()
 
     check_player_alive(player_row, player_col)
+
+
+# Input data examples
+
+# 5 6
+# .....P
+# ......
+# ...B..
+# ......
+# ......
+# ULDDDR
+
+# 5 8
+# .......B
+# ...B....
+# ....B..B
+# ........
+# ..P.....
+# ULLL
+
+
