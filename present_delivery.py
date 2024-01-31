@@ -66,3 +66,31 @@ if count_v == 0:
     print(f"Good job, Santa! {nice_kids_count} happy nice kid/s.")
 else:
     print(f"No presents for {count_v} nice kid/s.")
+
+
+
+# input data1:
+
+# 5
+# 4
+# - X V -
+# - S - V
+# - - - -
+# X - - -
+# up
+# right
+# down
+# right
+# Christmas morning
+
+
+# Input data2:
+
+# 3
+# 4
+# - - - -
+# V - X -
+# - V C V
+# - - - S
+# left
+# up
