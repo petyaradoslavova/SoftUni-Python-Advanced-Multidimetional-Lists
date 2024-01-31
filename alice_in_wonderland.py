@@ -49,6 +49,33 @@ while True:
 
 [print(*row) for row in matrix]
 
+# input data:
+# 5
+# . A . . 1
+# R . 2 . .
+# 4 7 . 1 .
+# . . . 2 .
+# . 3 . . .
+# down
+# right
+# left
+# down
+# up
+# left
+
+# 7
+# . A . 1 1 . .
+# 9 . . . 6 . 5
+# . 6 . R . . .
+# . 3 . . 1 . .
+# . . . 2 . . 2
+# . 3 . . 1 . .
+# . 8 3 . . . 2
+# left
+# down
+# down
+# right
+
 
 
 
