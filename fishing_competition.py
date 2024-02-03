@@ -73,3 +73,29 @@ if survived:
     handle_results(quote)
     for row in matrix:
         print("".join(row))
+
+
+#example input 
+
+#4
+#---S
+#----
+#9-5-
+#34--
+#down
+#down
+#right
+#down5
+
+
+#5
+#S---9
+#777-1
+#W333-
+#11111
+#-----
+#down
+#down
+#right
+#down
+#collect the nets
