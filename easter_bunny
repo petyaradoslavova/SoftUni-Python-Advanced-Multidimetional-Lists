@@ -1,0 +1,49 @@
+dimensions = int(input())
+
+matrix = [[str(n) for n in input().split()] for _ in range(dimensions)]
+
+directions = {
+    'up':  (-1, 0),
+    'down': (1, 0),
+    'left': (0, -1),
+    'right': (0, 1),
+}
+
+best_direction = None
+
+best_path = []
+
+max_eggs = 0
+for row in range(dimensions):
+    for col in range(dimensions):
+        if matrix[row][col] == 'B':
+            current_position = [row,col]
+
+            for direction,position in directions.items():
+                row,col = [
+                    current_position[0] + position[0],
+                    current_position[1] + position[1],
+                ]
+
+                collected_eggs = 0
+                path = []
+
+                while 0 <= row < dimensions and 0 <= col < dimensions:
+                        if matrix[row][col] == 'X' :
+                            break
+
+                        collected_eggs += int(matrix[row][col])
+                        path.append([row ,col])
+
+                        row += position[0]
+                        col += position[1]
+
+                if collected_eggs >= max_eggs:
+                    max_eggs = collected_eggs
+                    best_path = path
+                    best_direction = direction
+
+
+print(best_direction)
+print(*best_path,sep='\n')
+print(max_eggs)
