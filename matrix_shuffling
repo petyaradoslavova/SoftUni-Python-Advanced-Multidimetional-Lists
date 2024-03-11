@@ -1,0 +1,28 @@
+def indexes_valid(indices):
+    return {indices[0],indices[2]}.issubset(valid_rows) and\
+           {indices[1],indices[3]}.issubset(valid_cols)
+
+
+def swap_elements(command,indices):
+    if command == 'swap' and len(indices) == 4 and indexes_valid(indices):
+        row1,col1,row2,col2 = indices
+        matrix[row1][col1], matrix[row2][col2] = matrix[row2][col2],matrix[row1][col1]
+
+        [print(*row) for row in matrix]
+    else:
+        print('Invalid input!')
+
+
+rows, cols = [int(n) for n in input().split()]
+matrix = [input().split() for _ in range(rows)]
+
+valid_rows = range(rows)
+valid_cols = range(cols)
+
+while True:
+    com , *coordinates = [int(x) if x.isdigit() else x for x in input().split()]
+
+    if com == "END":
+        break
+
+    swap_elements(com,coordinates)
