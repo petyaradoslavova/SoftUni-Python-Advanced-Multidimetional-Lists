@@ -1,0 +1,77 @@
+from typing import List
+
+def move(direction:str,steps:int)-> List[int]:
+    r = shooter_position[0] + directions[direction][0] * steps
+    c = shooter_position[1] + directions[direction][1] * steps
+
+    if not (0 <= r < size and 0 <= c < size):
+        return shooter_position
+    if matrix[r][c] == 'x':
+        return shooter_position
+
+    return [r,c]
+
+
+def shoot(direction)-> List[int] or None :
+    r = shooter_position[0] + directions[direction][0]
+    c = shooter_position[1] + directions[direction][1]
+
+    while 0 <= r < size and 0 <= c < size:
+        if matrix[r][c] == 'x':
+            matrix[r][c] = '.'
+            return [r,c]
+
+        r += directions[direction][0]
+        c += directions[direction][1]
+
+
+
+
+size = 5
+
+matrix = []
+
+targets = 0
+targets_hit = 0
+
+shooter_position = []
+targets_hit_positions = []
+
+directions = {
+    'up': (-1, 0),
+    'down': (1, 0),
+    'right': (0, 1),
+    'left': (0, -1),
+}
+
+
+for row in range(size):
+    matrix.append(input().split())
+
+    if 'A' in matrix[row]:
+        shooter_position = [row, matrix[row].index('A')]
+
+    targets += matrix[row].count('x')
+
+
+for _ in range(int(input())):
+    command = input().split()
+
+    if command[0] == 'move':
+        shooter_position = move(command[1],int(command[2]))
+
+    elif command[0] == 'shoot':
+        target_down_pos = shoot(command[1])
+
+        if target_down_pos:
+            targets_hit_positions.append(target_down_pos)
+            targets_hit += 1
+
+        if targets_hit == targets:
+            print(f'Training completed! All {targets} targets hit.')
+            break
+
+if targets_hit<targets:
+    print(f'Training not completed! {targets - targets_hit} targets left.')
+
+print(*targets_hit_positions,sep='\n')
